@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fayaz Deen</title>
+<meta name="description" content="Fayaz Deen, Senior Technical Lead. Java, Spring Boot, microservices and distributed systems for commerce, search and payments.">
+<meta property="og:title" content="Fayaz Deen · Senior Technical Lead">
+<meta property="og:description" content="Fayaz Deen, Senior Technical Lead. Java, Spring Boot, microservices and distributed systems for commerce, search and payments.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fayaz-deen.github.io/">
+<meta property="og:image" content="https://fayaz-deen.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fayaz Deen, Senior Technical Lead">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fayaz-deen.github.io/">
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="avatar.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="avatar.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  color-scheme: dark;
+  --ground: #060606;
+  --ground-raise: #0c0c0b;
+  --ground-raise-2: #121110;
+  --glass: rgba(10, 10, 9, .72);
+  --shadow: rgba(0, 0, 0, .7);
+  --line: #1c1b19;
+  --line-strong: #2b2926;
+  --ink: #ece7df;
+  --ink-soft: #b3ada4;
+  --ink-mute: #8a847a;
+  --ink-dim: #5e5952;
+  /* semantic accents: amber = request / API / commerce, sage = event / pipeline, rose = data / security */
+  --accent-amber: #d2a566;
+  --accent-amber-soft: #7f6644;
+  --accent-amber-glow: rgba(210, 165, 102, .14);
+  --accent-sage: #91b39d;
+  --accent-sage-soft: #536a5a;
+  --accent-sage-glow: rgba(145, 179, 157, .13);
+  --accent-rose: #c4949a;
+  --accent-rose-soft: #74575b;
+  --accent-rose-glow: rgba(196, 148, 154, .13);
+  --stone: #8f877b;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --f-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --f-body: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 14px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 80px; }
+@media all { html { scroll-behavior: smooth; } }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+.page { padding-left: var(--gutter-l); padding-right: var(--gutter-r); overflow-x: clip; }
+.inner { max-width: 1200px; margin-inline: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent-amber); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--accent-amber); color: var(--ground); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.k-req { --k: var(--accent-amber); --k-soft: var(--accent-amber-soft); --k-glow: var(--accent-amber-glow); }
+.k-evt { --k: var(--accent-sage); --k-soft: var(--accent-sage-soft); --k-glow: var(--accent-sage-glow); }
+.k-data { --k: var(--accent-rose); --k-soft: var(--accent-rose-soft); --k-glow: var(--accent-rose-glow); }
+
+.live { position: relative; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-sage); }
+.live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--accent-sage); animation: ring 2.4s ease-out infinite; }
+@keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }
+
+/* ---------- sticky nav + scroll progress ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 40;
+  margin-left: calc(-1 * var(--gutter-l)); margin-right: calc(-1 * var(--gutter-r));
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+  background: var(--glass); border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+}
+.nav-inner { display: flex; align-items: center; gap: 16px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; flex: none; text-decoration: none; }
+.brand-mark { display: block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-amber-soft); }
+.brand-name { font-family: var(--f-display); font-weight: 600; font-stretch: 85%; font-size: 17px; }
+.nav nav { display: flex; gap: 2px; margin-left: auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.nav nav::-webkit-scrollbar { display: none; }
+.nav nav a {
+  position: relative; flex: none; padding: 8px 10px; border-radius: 8px;
+  font-family: var(--f-mono); font-size: 12px; color: var(--ink-mute); text-decoration: none; white-space: nowrap;
+}
+.nav nav a:hover { color: var(--ink); background: var(--ground-raise-2); }
+.nav nav a::after {
+  content: ""; position: absolute; left: 10px; right: 10px; bottom: 3px; height: 1px; background: var(--accent-amber);
+  transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+}
+.nav nav a[aria-current="true"] { color: var(--ink); }
+.nav nav a[aria-current="true"]::after { transform: scaleX(1); }
+.nav-status { display: none; align-items: center; gap: 10px; flex: none; padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 999px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-soft); }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; pointer-events: none; }
+.progress span { display: block; height: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--accent-sage), var(--accent-amber) 55%, var(--accent-rose)); }
+@media (min-width: 1040px) { .nav-status { display: flex; } }
+@media (max-width: 560px) { .brand-name { display: none; } .nav nav a { padding: 8px 8px; } .nav nav a::after { left: 8px; right: 8px; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; isolation: isolate; padding: 48px 0 80px; }
+.hero::before {
+  content: ""; position: absolute; top: 0; bottom: 0; z-index: -1; pointer-events: none;
+  left: calc(-1 * var(--gutter-l)); width: calc(100% + var(--gutter-l) + var(--gutter-r));
+  background: radial-gradient(50% 50% at 80% 55%, var(--accent-amber-glow), transparent 70%), radial-gradient(40% 40% at 10% 0%, var(--accent-sage-glow), transparent 70%);
+  opacity: .55;
+}
+.eyebrow { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 18px; font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-mute); }
+.eyebrow span + span::before { content: "/"; margin-right: 12px; color: var(--ink-dim); }
+.name {
+  margin: 0; color: var(--ink);
+  font-family: var(--f-display); font-weight: 800; font-stretch: 62%;
+  font-size: clamp(60px, 19vw, 240px); line-height: .82; letter-spacing: -.01em; text-transform: uppercase;
+}
+@supports (-webkit-background-clip: text) {
+  .name { background: linear-gradient(180deg, var(--ink) 35%, var(--ink-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+}
+.hero-grid { display: grid; gap: 40px; margin-top: 40px; }
+.role { margin: 0; font-family: var(--f-display); font-stretch: 85%; font-weight: 500; font-size: clamp(18px, 2vw, 22px); line-height: 1.35; color: var(--ink-soft); }
+.thesis { margin: 14px 0 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; max-width: 34em; }
+.status { display: flex; align-items: flex-start; gap: 12px; margin: 22px 0 0; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.7; color: var(--ink-soft); }
+.status .live { margin-top: 7px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px;
+  border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink);
+  font-family: var(--f-mono); font-size: 13px; text-decoration: none; cursor: pointer;
+  transition: transform .25s var(--ease);
+}
+.btn:hover { border-color: var(--ink-mute); background: var(--ground-raise-2); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+.btn-primary:hover { background: var(--accent-amber); border-color: var(--accent-amber); }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 32px 0 0; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.stats div { display: flex; flex-direction: column-reverse; gap: 6px; padding: 16px 18px; background: var(--ground); }
+.stats dt { font-family: var(--f-mono); font-size: 11.5px; line-height: 1.4; color: var(--ink-mute); }
+.stats dd { margin: 0; font-family: var(--f-display); font-weight: 700; font-stretch: 72%; font-size: 46px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats dd i { font-style: normal; color: var(--accent-amber); }
+
+/* hero visual: canvas owned by hero.js; the wrap's static grid + glow is the no-JS / load-failure state */
+.hero-viz-wrap {
+  position: relative; order: -1; height: 300px; overflow: hidden;
+  background:
+    radial-gradient(60% 60% at 62% 45%, var(--accent-amber-glow), transparent 70%),
+    radial-gradient(45% 50% at 25% 70%, var(--accent-sage-glow), transparent 70%),
+    repeating-linear-gradient(0deg, var(--line) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 44px);
+  -webkit-mask-image: radial-gradient(75% 70% at 50% 50%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(75% 70% at 50% 50%, #000 55%, transparent 100%);
+}
+#hero-viz { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+@keyframes log-in { from { transform: translateY(6px); } to { transform: none; } }
+
+@media (min-width: 960px) {
+  .hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: center; }
+  .hero-viz-wrap { order: 0; height: 520px; margin-top: -40px; }
+}
+
+/* ---------- client tail band ---------- */
+.band { margin: 0 calc(-1 * var(--gutter-r)) 0 calc(-1 * var(--gutter-l)); border-block: 1px solid var(--line); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; -webkit-user-select: none; user-select: none; }
+.band::-webkit-scrollbar { display: none; }
+.band.dragging { cursor: grabbing; }
+.band:focus-visible { outline: 1px solid var(--accent-amber); outline-offset: -1px; }
+.band-track { display: flex; width: max-content; }
+.band img { -webkit-user-drag: none; pointer-events: none; }
+.band ul { display: flex; margin: 0; padding: 0; list-style: none; }
+.band li { display: flex; align-items: center; gap: clamp(40px, 6vw, 72px); padding: 22px 0 22px clamp(40px, 6vw, 72px); }
+.band li img { display: block; width: auto; height: clamp(22px, 3vw, 32px); max-width: none; opacity: .88; transition: opacity .3s ease; }
+.band li img.mono { filter: brightness(0) invert(1); }
+.band li img.tall { height: clamp(26px, 3.6vw, 38px); }
+.band li img.pp { height: clamp(32px, 4.4vw, 48px); opacity: 1; }
+.band li img.nu { height: clamp(30px, 4vw, 44px); }
+.band .wordmark { font-family: var(--f-display); font-weight: 800; font-stretch: 85%; font-size: clamp(20px, 2.6vw, 28px); line-height: 1; letter-spacing: .06em; text-transform: uppercase; color: #fff; opacity: .88; white-space: nowrap; }
+.band .wordmark small { display: block; margin-top: 4px; font-family: var(--f-mono); font-weight: 400; font-size: 9px; letter-spacing: .3em; color: var(--ink-mute); }
+.band li:hover img, .band.dragging img { opacity: 1; }
+.band li::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--k, var(--accent-amber-soft)); }
+.band li:nth-child(3n+2) { --k: var(--accent-sage-soft); }
+.band li:nth-child(3n) { --k: var(--accent-rose-soft); }
+
+/* ---------- sections ---------- */
+.section { padding: 112px 0 0; }
+.sec-head { margin: 0 0 40px; }
+.kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); }
+.kicker::before { content: ""; width: 18px; height: 1px; background: var(--k, var(--accent-amber)); }
+h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700; font-stretch: 72%; font-size: clamp(40px, 6.4vw, 78px); line-height: .95; letter-spacing: -.005em; text-transform: uppercase; }
+.sec-sub { margin: 18px 0 0; max-width: 40em; color: var(--ink-soft); }
+.js .reveal { transition: transform .9s var(--ease); }
+.js .reveal.rv { transform: translateY(22px); }
+
+/* profile */
+.profile { display: grid; gap: 24px; }
+.profile-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise); }
+.who { display: flex; align-items: center; gap: 16px; margin: 0 0 22px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+.monogram { display: block; flex: none; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-amber-soft); box-shadow: 0 0 0 4px var(--ground), 0 0 0 5px var(--line-strong); }
+.who-name { margin: 0; font-family: var(--f-display); font-stretch: 85%; font-weight: 600; font-size: 20px; line-height: 1.2; }
+.who-role { margin: 4px 0 0; font-family: var(--f-mono); font-size: 12px; color: var(--ink-mute); line-height: 1.5; }
+.profile-card p.copy { margin: 0 0 16px; color: var(--ink-soft); }
+.profile-card p.copy:last-child { margin-bottom: 0; }
+.profile-card strong { color: var(--ink); font-weight: 600; }
+.wins { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.win {
+  position: relative; overflow: hidden; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--ground-raise); transition: transform .35s var(--ease);
+}
+.win::after { content: ""; position: absolute; left: 22px; right: 22px; top: 0; height: 1px; background: linear-gradient(90deg, var(--k), transparent); }
+.win:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+.win h3 { margin: 0 0 8px; font-family: var(--f-display); font-stretch: 80%; font-weight: 600; font-size: 21px; line-height: 1.2; }
+.win .tag { display: block; margin: 0 0 12px; font-family: var(--f-mono); font-size: 11px; color: var(--k); }
+.win p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+@media (min-width: 640px) { .wins { grid-template-columns: 1fr 1fr; } .win.wide { grid-column: 1 / -1; } }
+@media (min-width: 1000px) { .profile { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+
+/* career trace */
+.trace { --label-w: 230px; --pad: 14px; display: grid; gap: 24px; }
+.trace-list { position: relative; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise); overflow: hidden; }
+.trace-axis, .span-btn, .trace-root { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px 20px; padding: 12px var(--pad); }
+.trace-axis { padding-block: 14px 10px; border-bottom: 1px solid var(--line); font-family: var(--f-mono); font-size: 11px; color: var(--ink-mute); }
+.axis { position: relative; height: 16px; }
+.axis span { position: absolute; top: 0; left: var(--p); transform: translateX(-50%); }
+.axis .now { transform: translateX(-100%); color: var(--accent-sage); }
+.y17 { --p: 4.84%; } .y19 { --p: 24.19%; } .y21 { --p: 43.55%; } .y23 { --p: 62.9%; } .y25 { --p: 82.26%; } .ynow { --p: 100%; }
+.trace-axis .axis-label { display: none; }
+.span { border-top: 1px solid var(--line); }
+.span-btn {
+  position: relative; width: 100%; margin: 0; border: 0; background: transparent; color: inherit; text-align: left;
+  font: inherit; cursor: pointer;
+}
+.span-btn:hover, .span.is-active .span-btn { background: var(--ground-raise-2); }
+.span.is-active .span-btn { box-shadow: inset 2px 0 0 var(--c); }
+.span-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; min-width: 0; }
+.span-role { font-family: var(--f-display); font-stretch: 85%; font-weight: 600; font-size: 18px; line-height: 1.25; }
+.span-co { font-size: 14px; color: var(--ink-soft); }
+.span-when { display: block; width: 100%; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
+.span-track, .root-track {
+  position: relative; align-self: center; height: 16px;
+  background:
+    linear-gradient(var(--line), var(--line)) 4.84% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) 24.19% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) 43.55% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) 62.9% 0 / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) 82.26% 0 / 1px 100% no-repeat;
+}
+.bar { position: absolute; top: 4px; height: 8px; left: var(--s); width: var(--w); min-width: 5px; overflow: hidden; border-radius: 3px; background: var(--c); }
+.bar::after { content: ""; position: absolute; inset: 0; transform: translateX(-101%); background: linear-gradient(90deg, transparent, var(--ink), transparent); opacity: .55; }
+.span.is-active .bar, .span-btn:hover .bar { box-shadow: 0 0 14px var(--c); }
+.trace.play .bar::after { animation: glint .9s var(--ease) var(--delay, 0s); }
+@keyframes glint { to { transform: translateX(101%); } }
+.playhead-wrap { position: absolute; top: 0; bottom: 0; left: var(--pad); right: var(--pad); overflow: hidden; pointer-events: none; }
+.playhead { position: absolute; inset: 0; opacity: 0; transform: translateX(-100%); border-right: 1px solid var(--accent-amber); background: linear-gradient(90deg, transparent 70%, var(--accent-amber-glow)); }
+.trace.play .playhead { animation: sweep 2.3s cubic-bezier(.45, 0, .2, 1) forwards; }
+@keyframes sweep { 0% { opacity: 1; transform: translateX(-100%); } 88% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; transform: translateX(0); } }
+.trace-root .span-role { font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; color: var(--ink-mute); }
+.span-detail { padding: 0 var(--pad) 18px calc(var(--pad) + 2px); }
+.detail-head { display: none; }
+.span-attrs { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 12px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
+.span-attrs b { font-weight: 400; color: var(--c); }
+.span-events { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.span-events li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+.span-events li::before { content: ""; position: absolute; left: 0; top: .78em; width: 8px; height: 1px; background: var(--c); }
+.span-events strong { color: var(--ink); font-weight: 600; }
+.trace-panel { display: none; }
+.s-root { --s: 0%; --w: 100%; --c: var(--line-strong); }
+.s-stl { --s: 84.68%; --w: 15.32%; --c: var(--accent-amber); --delay: 1.69s; }
+.s-tl { --s: 58.87%; --w: 25.81%; --c: var(--accent-amber); --delay: 1.18s; }
+.s-alt { --s: 49.19%; --w: 8.87%; --c: var(--accent-rose); --delay: .98s; }
+.s-crown { --s: 41.13%; --w: 7.26%; --c: var(--accent-sage); --delay: .82s; }
+.s-hifi { --s: 22.58%; --w: 17.74%; --c: var(--stone); --delay: .45s; }
+.s-ivtl { --s: 0%; --w: 22.58%; --c: var(--ink-dim); --delay: 0s; }
+.s-stl .bar { overflow: visible; }
+.s-stl .bar::before { content: ""; position: absolute; right: -4px; top: -2px; width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--accent-amber); animation: ring 2.4s ease-out infinite; }
+@media (min-width: 760px) {
+  .trace-axis, .span-btn, .trace-root { grid-template-columns: var(--label-w) minmax(0, 1fr); }
+  .trace-axis .axis-label { display: block; }
+  .playhead-wrap { left: calc(var(--pad) + var(--label-w) + 20px); }
+}
+@media (min-width: 1000px) {
+  .js .trace { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
+  .js .trace-list .span-detail { display: none; }
+  .js .trace-panel {
+    display: block; position: sticky; top: 84px; padding: 24px;
+    border: 1px solid var(--line-strong); border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--ground-raise-2), var(--ground-raise));
+    box-shadow: inset 0 1px 0 var(--c, var(--accent-amber)), 0 40px 80px -50px var(--shadow);
+  }
+  .trace-panel .span-detail { padding: 0; }
+  .trace-panel .detail-head { display: block; margin: 0 0 16px; }
+  .detail-kicker { margin: 0 0 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); }
+  .detail-role { margin: 0; font-family: var(--f-display); font-stretch: 78%; font-weight: 700; font-size: 32px; line-height: 1.05; text-transform: uppercase; }
+  .detail-co { margin: 6px 0 0; color: var(--ink-soft); }
+  .trace-panel .span-detail.in { animation: log-in .45s var(--ease); }
+}
+
+/* platforms bento */
+.cards { display: grid; gap: 14px; grid-auto-flow: dense; }
+.card {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; gap: 14px; padding: 24px;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise);
+  transition: transform .4s var(--ease);
+}
+.card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s var(--ease);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--k-glow), transparent 60%);
+}
+.card::after { content: ""; position: absolute; left: 24px; right: 24px; top: 0; height: 1px; background: linear-gradient(90deg, var(--k), transparent 70%); opacity: .7; }
+.card:hover, .card:focus-within { transform: translateY(-3px); border-color: var(--k-soft); }
+.card:hover::before, .card:focus-within::before { opacity: 1; }
+.card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 3px 12px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
+.card h3 { margin: 0; font-family: var(--f-display); font-weight: 700; font-stretch: 72%; font-size: clamp(36px, 4vw, 52px); line-height: .92; text-transform: uppercase; }
+.card .desc { margin: 0; color: var(--ink-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { padding: 3px 10px; border: 1px solid var(--k-soft); border-radius: 999px; font-family: var(--f-mono); font-size: 11px; color: var(--k); background: var(--k-glow); }
+.pts { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.pts li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
+.pts li::before { content: ""; position: absolute; left: 0; top: .78em; width: 8px; height: 1px; background: var(--k); }
+.pts strong { color: var(--ink); font-weight: 600; }
+.tech { margin: auto 0 0; padding-top: 14px; border-top: 1px dashed var(--line-strong); font-family: var(--f-mono); font-size: 11px; line-height: 1.75; color: var(--ink-mute); }
+.card.hero-card h3 { font-size: clamp(48px, 6vw, 84px); }
+.pts-h { margin: 6px 0 -4px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--k-ink, var(--ink-mute)); }
+.flows { display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--ground); }
+.flow-h { margin: 0; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); }
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px 0; margin: 0 0 6px; padding: 0; list-style: none; }
+.flow li { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 7px 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--ground-raise); font-family: var(--f-mono); font-size: 12px; color: var(--ink); white-space: nowrap; }
+.flow li span { font-size: 10px; color: var(--ink-mute); }
+.flow li + li { margin-left: 22px; }
+.flow li + li::before { content: ""; position: absolute; left: -19px; top: 50%; width: 16px; height: 1px; background: linear-gradient(90deg, var(--line-strong), var(--accent-sage)); }
+.flow li + li::after { content: ""; position: absolute; left: -6px; top: calc(50% - 3px); border: 3px solid transparent; border-left-color: var(--accent-sage); }
+.flow li:nth-child(2) { border-color: var(--accent-rose-soft); }
+.flow:first-of-type li:nth-child(3), .flow li:last-child { border-color: var(--accent-sage-soft); }
+@media all {
+  .flow li + li::before { background-size: 200% 100%; background-image: linear-gradient(90deg, var(--line-strong) 0%, var(--accent-sage) 50%, var(--line-strong) 100%); animation: flow-pulse 2.4s linear infinite; }
+}
+@keyframes flow-pulse { from { background-position: 200% 0; } to { background-position: 0 0; } }
+.earlier { margin: 40px 0 0; }
+.earlier-h { margin: 0 0 4px; font-family: var(--f-mono); font-size: 12px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); }
+.earlier-row { display: grid; gap: 4px 40px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.earlier-row:first-of-type { border-top: 1px solid var(--line); }
+.earlier-row h3 { margin: 0; font-family: var(--f-display); font-stretch: 85%; font-weight: 600; font-size: 19px; line-height: 1.25; }
+.earlier-row .card-meta { margin-top: 4px; }
+.earlier-row p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+@media (min-width: 720px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .card.hero-card { grid-column: 1 / -1; }
+  .earlier-row { grid-template-columns: minmax(0, 320px) minmax(0, 1fr); }
+}
+@media (min-width: 1080px) {
+  .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card.hero-card { grid-column: span 2; grid-row: span 2; }
+  .card.w2 { grid-column: span 2; }
+}
+
+/* stack bento */
+.stack { display: grid; gap: 12px; margin: 0; grid-auto-flow: dense; }
+.stack > div {
+  padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise);
+  transition: transform .35s var(--ease);
+}
+.stack > div:hover { transform: translateY(-2px); border-color: var(--k-soft); }
+.stack dt { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; color: var(--k); }
+.stack dt::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--k); }
+.stack dd { margin: 0; }
+.stack .chips li { color: var(--ink-soft); border-color: var(--line-strong); background: transparent; font-size: 11.5px; padding: 4px 10px; }
+.stack > div:hover .chips li { border-color: var(--k-soft); }
+@media (min-width: 720px) { .stack { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1080px) { .stack { grid-template-columns: repeat(4, minmax(0, 1fr)); } .stack .w2 { grid-column: span 2; } }
+
+/* credentials */
+.creds { display: grid; gap: 14px; }
+.glass {
+  position: relative; overflow: hidden; padding: 26px; border: 1px solid var(--line-strong); border-radius: 18px;
+  background: linear-gradient(160deg, var(--ground-raise-2), var(--ground));
+}
+.glass::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 80% at 100% 0%, var(--accent-sage-glow), transparent 60%); }
+.cred-h { position: relative; margin: 0; font-family: var(--f-display); font-stretch: 80%; font-weight: 700; font-size: 26px; line-height: 1.15; }
+.cred-sub { position: relative; margin: 6px 0 20px; font-family: var(--f-mono); font-size: 12px; color: var(--ink-mute); }
+.badges { position: relative; display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.badges li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--ground); font-size: 14.5px; line-height: 1.35; }
+.badges li.feat { border-color: var(--accent-sage-soft); }
+.verify { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border: 1px solid var(--accent-sage-soft); border-radius: 999px; font-family: var(--f-mono); font-size: 11.5px; color: var(--accent-sage); text-decoration: none; white-space: nowrap; }
+.verify:hover { background: var(--accent-sage-glow); }
+.edu { position: relative; margin: 0; color: var(--ink-soft); }
+.edu b { display: block; color: var(--ink); font-weight: 600; font-size: 17px; }
+.badges li > span { min-width: 0; }
+@media (min-width: 560px) { .badges { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .badges { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* contact */
+.contact { padding-bottom: 80px; }
+.contact-card {
+  position: relative; overflow: hidden; display: grid; gap: 32px; padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line-strong); border-radius: 22px;
+  background: radial-gradient(70% 90% at 0% 100%, var(--accent-amber-glow), transparent 60%), radial-gradient(50% 70% at 100% 0%, var(--accent-rose-glow), transparent 60%), var(--ground-raise);
+}
+.contact-lead { margin: 18px 0 26px; max-width: 34em; font-size: clamp(17px, 1.6vw, 19px); color: var(--ink-soft); }
+.email {
+  display: inline-block; font-family: var(--f-display); font-stretch: 80%; font-weight: 600;
+  font-size: clamp(28px, 5.4vw, 64px); line-height: 1.05; color: var(--ink);
+  -webkit-user-select: all; user-select: all; overflow-wrap: anywhere;
+}
+.copy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 22px 0 0; }
+.copy-status { font-family: var(--f-mono); font-size: 12px; color: var(--accent-sage); }
+.facts { display: grid; gap: 0; margin: 0; align-content: start; }
+.facts div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.facts div:first-child { border-top: 1px solid var(--line); }
+.facts dt { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
+.facts dd { margin: 2px 0 0; color: var(--ink); }
+@media (min-width: 960px) { .contact-card { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; } }
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 22px 0 32px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
+
+@media not all {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal.rv { transform: none; }
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<div class="page">
+  <header class="nav">
+    <div class="nav-inner inner">
+      <a class="brand" href="#top" aria-label="Fayaz Deen, back to top"><img class="brand-mark" src="avatar.jpg" alt="" width="30" height="30"><span class="brand-name">Fayaz Deen</span></a>
+      <nav aria-label="Sections">
+        <a href="#profile">Profile</a>
+        <a href="#trace">Career</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#stack">Stack</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <span class="nav-status"><span class="live" aria-hidden="true"></span>Open to new roles</span>
+    </div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="inner">
+        <p class="eyebrow"><span>Senior Technical Lead at NULogic</span><span>Santiago, Chile</span></p>
+        <h1 class="name" id="hero-name">Fayaz Deen</h1>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="role">Java · Spring Boot · Microservices · Distributed Systems</p>
+            <p class="thesis">I build and lead the Java backends behind enterprise commerce, search, payments and data platforms, for global brands including Sephora, Macy’s, Express, PayPal, Wild Fork and UPPAbaby.</p>
+            <p class="status"><span class="live" aria-hidden="true"></span><span>Open to Lead, Staff and Senior Backend Engineer roles<br>Open to relocating anywhere · remote, hybrid or on-site</span></p>
+            <div class="ctas">
+              <a class="btn btn-primary" href="#contact">Get in touch</a>
+              <a class="btn" href="https://www.linkedin.com/in/fayaz-deen-b1ba932b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a class="btn" href="https://github.com/Fayaz-Deen" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+            <dl class="stats">
+              <div><dt>years building in Java</dt><dd><span data-count="10">10</span><i>+</i></dd></div>
+              <div><dt>global brands served</dt><dd data-count="6">6</dd></div>
+              <div><dt>brands on headless commerce</dt><dd data-count="4">4</dd></div>
+              <div><dt>Claude Academy badges</dt><dd data-count="15">15</dd></div>
+            </dl>
+          </div>
+
+          <div class="hero-viz-wrap">
+            <canvas id="hero-viz" aria-hidden="true"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" role="region" tabindex="0" aria-label="Companies I have worked with and built for (scrollable)">
+      <div class="band-track">
+        <ul><li><img class="nu" src="logos/nulogic.svg" alt="NULogic"></li><li><img class="mono" src="logos/sephora.svg" alt="Sephora"></li><li><img src="logos/macys.svg" alt="Macy’s"></li><li><img class="mono" src="logos/express.svg" alt="Express"></li><li><img class="pp" src="logos/paypal.svg" alt="PayPal"></li><li><img src="logos/wildfork.png" alt="Wild Fork"></li><li><img class="tall" src="logos/uppababy.svg" alt="UPPAbaby"></li><li><span class="wordmark">Crown Solutions<small>India Pvt Ltd</small></span></li></ul>
+        <ul aria-hidden="true"><li><img class="nu" src="logos/nulogic.svg" alt=""></li><li><img class="mono" src="logos/sephora.svg" alt=""></li><li><img src="logos/macys.svg" alt=""></li><li><img class="mono" src="logos/express.svg" alt=""></li><li><img class="pp" src="logos/paypal.svg" alt=""></li><li><img src="logos/wildfork.png" alt=""></li><li><img class="tall" src="logos/uppababy.svg" alt=""></li><li><span class="wordmark">Crown Solutions<small>India Pvt Ltd</small></span></li></ul>
+      </div>
+    </div>
+
+    <section class="section inner" id="profile" aria-labelledby="profile-h">
+      <div class="sec-head reveal">
+        <p class="kicker">Profile</p>
+        <h2 id="profile-h">Leading through architecture and example</h2>
+      </div>
+      <div class="profile reveal">
+        <div class="profile-card">
+          <div class="who">
+            <img class="monogram" src="avatar.jpg" alt="Fayaz Deen" width="64" height="64">
+            <div>
+              <p class="who-name">Mohamed Fayaz Deen H</p>
+              <p class="who-role">Senior Technical Lead · NULogic</p>
+            </div>
+          </div>
+          <p class="copy">Senior Technical Lead with <strong>10+ years</strong> building <strong>enterprise commerce, search, payments and data platforms</strong> in Java. Grew from Junior Developer (2016) to Senior Technical Lead (2025), and now lead parallel client programs for NULogic, on-site in Santiago, Chile.</p>
+          <p class="copy">Deep in <strong>Java, Spring Boot, microservices, REST APIs and distributed systems</strong>: event-driven design on <strong>Kafka</strong>, Redis and Cassandra, with cloud work across <strong>AWS, GCP and Azure</strong>. Specialist in <strong>Commercetools headless commerce</strong>.</p>
+          <p class="copy">I own design decisions, work directly with <strong>enterprise client stakeholders</strong>, mentor engineers and set the bar for designs, code reviews and tests. I use <strong>Claude Code and AI-assisted workflows</strong> every day to speed up delivery, with every change reviewed by a human.</p>
+        </div>
+        <ul class="wins">
+          <li class="win wide k-req"><span class="tag">search · Express</span><h3>Google Retail Search, built from scratch</h3><p>End-to-end search for web and mobile, with multi-level faceting, ranking tuning, Elasticsearch autocomplete and SEO product feeds.</p></li>
+          <li class="win k-evt"><span class="tag">pipeline · Sephora</span><h3>Personalization at scale</h3><p>Architected the Azure Batch engine that renders personalized, eligibility-driven email layouts for millions of customer records.</p></li>
+          <li class="win k-evt"><span class="tag">events · Sephora</span><h3>Event-driven data sync</h3><p>Kafka as the message queue for Cosmos DB and ruleset updates, keeping data and business rules consistent across services.</p></li>
+          <li class="win k-req"><span class="tag">commerce · 4 brands</span><h3>Headless commerce</h3><p>Commercetools catalog, pricing, discount, cart, checkout and inventory services for Sephora, Express, Wild Fork and UPPAbaby.</p></li>
+          <li class="win k-data"><span class="tag">payments · PayPal</span><h3>Payments-grade reliability</h3><p>Hardened authentication and authorization with circuit breakers, idempotency, multi-data-center Redis session clustering and PCI-DSS compliance.</p></li>
+          <li class="win wide k-req"><span class="tag">leadership · 2016 → 2025</span><h3>Engineering leadership</h3><p>Progressed from Junior Developer (2016) to Senior Technical Lead (2025); served as Solution Architect on Collectivus while leading Sephora and UPPAbaby delivery in parallel.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section inner" id="trace" aria-labelledby="trace-h">
+      <div class="sec-head reveal">
+        <p class="kicker">Career trace</p>
+        <h2 id="trace-h">Ten years, one trace</h2>
+        <p class="sec-sub">Every role is a span on a single trace, from July 2016 to now. Select a span to read its events.</p>
+      </div>
+      <div class="trace reveal">
+        <div class="trace-list">
+          <div class="trace-axis" aria-hidden="true">
+            <span class="axis-label">span · service</span>
+            <div class="axis"><span class="y17">2017</span><span class="y19">2019</span><span class="y21">2021</span><span class="y23">2023</span><span class="y25">2025</span><span class="ynow now">now</span></div>
+          </div>
+          <div class="trace-root s-root">
+            <span class="span-label"><span class="span-role">root · career</span></span>
+            <span class="root-track" aria-hidden="true"><span class="bar"></span></span>
+          </div>
+
+          <div class="span s-stl is-active">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="true">
+              <span class="span-label"><span class="span-role">Senior Technical Lead</span><span class="span-co">NULogic</span><span class="span-when">Apr 2025 – Present</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span · current</p><p class="detail-role">Senior Technical Lead</p><p class="detail-co">NULogic</p></div>
+              <p class="span-attrs"><span><b>start</b> Apr 2025</span><span><b>end</b> present</span><span><b>location</b> Santiago, Chile (On-site)</span></p>
+              <ul class="span-events">
+                <li>Lead backend and commerce engineering across parallel enterprise programs (<strong>Sephora, UPPAbaby, Collectivus</strong>), owning architecture, design decisions, implementation strategy and code quality.</li>
+                <li>Shape service boundaries, data models and integration patterns for headless commerce, search, data pipelines and customer-engagement systems built on Spring Boot microservices.</li>
+                <li>Work directly with <strong>enterprise client stakeholders</strong> to turn business goals into requirements and delivery roadmaps.</li>
+                <li>Own cloud deployments, monitoring and production readiness for high-availability services.</li>
+                <li>Introduced <strong>Claude Code and AI-assisted workflows</strong> for prototyping, test generation, refactoring and documentation, with every change verified through code review.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="span s-tl">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="false">
+              <span class="span-label"><span class="span-role">Technical Lead</span><span class="span-co">NULogic</span><span class="span-when">Aug 2022 – Apr 2025</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span</p><p class="detail-role">Technical Lead</p><p class="detail-co">NULogic</p></div>
+              <p class="span-attrs"><span><b>start</b> Aug 2022</span><span><b>end</b> Apr 2025</span><span><b>location</b> Chennai, India (Remote)</span></p>
+              <ul class="span-events">
+                <li>Led backend engineering for NULogic’s enterprise commerce clients <strong>Wild Fork, Express and Sephora</strong>.</li>
+                <li>Delivered <strong>Google Retail Search from scratch</strong> for Express web and mobile, plus Commercetools catalog, pricing, discount, cart and checkout services across three brands.</li>
+                <li>Drove microservices adoption with Spring Boot and RESTful APIs; supported AWS and Azure deployments, CI/CD pipelines and monitoring.</li>
+                <li>Mentored engineers, ran design and code reviews, and set the standard for low-level designs and unit tests.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="span s-alt">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="false">
+              <span class="span-label"><span class="span-role">Senior Software Engineer II</span><span class="span-co">Altimetrik (client: PayPal)</span><span class="span-when">Aug 2021 – Jul 2022</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span</p><p class="detail-role">Senior Software Engineer II</p><p class="detail-co">Altimetrik (client: PayPal)</p></div>
+              <p class="span-attrs"><span><b>start</b> Aug 2021</span><span><b>end</b> Jul 2022</span><span><b>location</b> Chennai, India (Remote)</span></p>
+              <ul class="span-events">
+                <li>Built resilient Java microservices for PayPal’s core <strong>authentication and authorization</strong> platform, with circuit breakers, idempotency and secure token propagation.</li>
+                <li>Designed <strong>Redis session clustering across multiple data centers</strong> and <strong>Cassandra</strong> data models for high-throughput token storage; kept modules <strong>PCI-DSS</strong> compliant.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="span s-crown">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="false">
+              <span class="span-label"><span class="span-role">Software Engineer</span><span class="span-co">Crown Solutions India (client: Macy’s)</span><span class="span-when">Oct 2020 – Jul 2021</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span</p><p class="detail-role">Software Engineer</p><p class="detail-co">Crown Solutions India Pvt Ltd (client: Macy’s) · Business Analyst designation</p></div>
+              <p class="span-attrs"><span><b>start</b> Oct 2020</span><span><b>end</b> Jul 2021</span><span><b>location</b> Chennai, India (On-site)</span></p>
+              <ul class="span-events">
+                <li>Built guest checkout, secure password reset and post-purchase order and address management for macys.com in Java and Spring.</li>
+                <li>Turned business requirements into technical specs and REST APIs, and partnered with QA on functional testing.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="span s-hifi">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="false">
+              <span class="span-label"><span class="span-role">Engineer</span><span class="span-co">Hifi Technology</span><span class="span-when">Nov 2018 – Sep 2020</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span</p><p class="detail-role">Engineer</p><p class="detail-co">Hifi Technology</p></div>
+              <p class="span-attrs"><span><b>start</b> Nov 2018</span><span><b>end</b> Sep 2020</span><span><b>location</b> Chennai, India (On-site)</span></p>
+              <ul class="span-events">
+                <li>Built the REST service layer and Hibernate persistence for E-Com Operator Management, a merchant admin platform for insurance plans and health claims; set up its cloud infrastructure from scratch.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="span s-ivtl">
+            <button class="span-btn" type="button" aria-controls="trace-panel" aria-pressed="false">
+              <span class="span-label"><span class="span-role">Software Engineer</span><span class="span-co">IVTL Infoview Technologies</span><span class="span-when">Jul 2016 – Nov 2018</span></span>
+              <span class="span-track" aria-hidden="true"><span class="bar"></span></span>
+            </button>
+            <div class="span-detail">
+              <div class="detail-head"><p class="detail-kicker">span · first</p><p class="detail-role">Software Engineer</p><p class="detail-co">IVTL Infoview Technologies · Junior Developer to Full Stack Developer</p></div>
+              <p class="span-attrs"><span><b>start</b> Jul 2016</span><span><b>end</b> Nov 2018</span><span><b>location</b> Chennai, India (On-site)</span></p>
+              <ul class="span-events">
+                <li>Converted a Delphi desktop application into a web application (2 modules solo, 3 with the team), then delivered the HUE ERP approval-flow module and <strong>led a team of 4</strong> on its maintenance.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="playhead-wrap" aria-hidden="true"><div class="playhead"></div></div>
+        </div>
+        <aside class="trace-panel" id="trace-panel" aria-label="Selected span details"></aside>
+      </div>
+    </section>
+
+    <section class="section inner" id="platforms" aria-labelledby="platforms-h">
+      <div class="sec-head reveal">
+        <p class="kicker">Selected platforms</p>
+        <h2 id="platforms-h">Commerce, search, payments, data</h2>
+      </div>
+      <div class="cards reveal">
+        <article class="card hero-card k-evt">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>data pipelines</li><li>event streaming</li><li>commerce</li><li>rules</li></ul></div>
+          <h3>Sephora</h3>
+          <p class="card-meta"><span>NULogic</span><span>Technical Lead</span><span>Feb 2024 – Present</span><span>team of 3</span></p>
+          <p class="desc">Omnichannel beauty commerce: a Commercetools-powered storefront and a personalized customer-engagement system for large-scale email campaigns.</p>
+          <div class="flows" aria-label="Main data flows">
+            <p class="flow-h">email personalization pipeline</p>
+            <ol class="flow k-evt-flow">
+              <li>Contentful<span>layouts</span></li>
+              <li>Drools<span>eligibility rules</span></li>
+              <li>Azure Batch<span>parallel jobs</span></li>
+              <li>CSV<span>per segment</span></li>
+              <li>Epsilon<span>email send</span></li>
+            </ol>
+            <p class="flow-h">event sync</p>
+            <ol class="flow">
+              <li>Services<span>producers</span></li>
+              <li>Kafka<span>message queue</span></li>
+              <li>Cosmos DB<span>data + rulesets</span></li>
+            </ol>
+          </div>
+          <p class="pts-h">Data pipelines &amp; event streaming</p>
+          <ul class="pts">
+            <li>Architected <strong>Azure Batch</strong> pipelines for CSV generation and personalized email content across <strong>millions of customer records</strong>, with independent job startup and robust error handling.</li>
+            <li>Used <strong>Kafka</strong> as the message queue for <strong>Cosmos DB and ruleset updates</strong>, keeping data and business rules in sync across services.</li>
+            <li>Led a high-performance email generation system with personalized layouts; built Epsilon templates with AI-driven subject-line optimization.</li>
+            <li>Built a <strong>Contentful</strong>-based content engine that renders layouts by customer eligibility and segment.</li>
+            <li>Raised throughput by tuning multi-threaded execution with the <strong>Java Executor framework</strong>, and optimized MySQL design for large-scale data operations.</li>
+          </ul>
+          <p class="pts-h">Commercetools &amp; digital commerce</p>
+          <ul class="pts">
+            <li>Led Commercetools integration for catalog, pricing and inventory sync; designed <strong>REST APIs</strong> for products, categories and variants.</li>
+            <li>Built <strong>real-time product sync pipelines</strong> between Commercetools and backend systems; search and filtering with Product Projections and Query APIs.</li>
+            <li>Managed cart, checkout and order workflows and integrated third-party services.</li>
+          </ul>
+          <p class="pts-h">Technical leadership</p>
+          <ul class="pts">
+            <li>Implemented a <strong>Drools</strong> rule engine for complex business rules and customer targeting; built <strong>shared internal libraries</strong> reused across microservices.</li>
+            <li>Supported DevOps through <strong>Argo CD</strong> pipelines and configuration deployments; wrote LLDs, analysis documents and unit tests, and mentored the team.</li>
+          </ul>
+          <p class="tech">Java · Spring Boot · Hibernate · Microservices · Kafka · Azure Batch · Azure Cosmos DB · Commercetools · Drools · Contentful · Epsilon · MySQL · Argo CD</p>
+        </article>
+
+        <article class="card w2 k-req">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>search</li><li>commerce</li><li>payments</li></ul></div>
+          <h3>Express</h3>
+          <p class="card-meta"><span>NULogic</span><span>Senior Software Engineer</span><span>Jan 2023 – Jan 2024</span><span>team of 12</span></p>
+          <p class="desc">Headless omnichannel commerce for web and mobile with multi-gateway payments, dynamic promotions and SEO-optimized product feeds.</p>
+          <ul class="pts">
+            <li>Implemented <strong>Google Retail Search from scratch</strong> for desktop and mobile, with <strong>multi-level faceted navigation</strong> and product feeds for indexing and SEO.</li>
+            <li>Integrated <strong>Elasticsearch</strong> for fast search and autocomplete, and tuned ranking logic.</li>
+            <li>Commercetools discounts, <strong>Subscriptions</strong> and <strong>API Extensions</strong>; <strong>Stripe, PayPal and Adyen</strong> payments; <strong>Redis caching</strong> to cut response times and database load.</li>
+          </ul>
+          <p class="tech">Java · Spring Boot · Hibernate · Commercetools · Google Retail Search · Elasticsearch · Redis · MySQL · AWS (S3, Lambda, SQS, SNS, CloudWatch) · Stripe · PayPal · Adyen</p>
+        </article>
+
+        <article class="card k-data">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>auth</li><li>payments</li></ul></div>
+          <h3>PayPal</h3>
+          <p class="card-meta"><span>Altimetrik</span><span>Senior Software Engineer II</span><span>Aug 2021 – Jul 2022</span><span>team of 30</span></p>
+          <p class="desc">Core authentication and authorization modules of one of the world’s largest online payment systems.</p>
+          <ul class="pts">
+            <li><strong>Circuit breakers</strong> and <strong>idempotency</strong> for critical authorization operations.</li>
+            <li><strong>Redis</strong> session clustering across multiple data centers; <strong>Cassandra</strong> models for token storage; <strong>PCI-DSS</strong>.</li>
+          </ul>
+          <p class="tech">Java · J2EE · Spring · Hibernate · Microservices · Redis · Cassandra · REST APIs · JUnit</p>
+        </article>
+
+        <article class="card k-req">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>commerce</li></ul></div>
+          <h3>UPPAbaby</h3>
+          <p class="card-meta"><span>NULogic</span><span>Senior Full Stack Developer</span><span>Jul 2026 – Oct 2026</span><span>team of 8</span></p>
+          <p class="desc">Direct-to-consumer commerce for a global maker of premium strollers, car seats and nursery products.</p>
+          <ul class="pts">
+            <li>Commercetools catalog, variants and pricing across regional storefronts.</li>
+            <li>Modeled <strong>product–accessory compatibility</strong> so shoppers see only the parts that fit.</li>
+          </ul>
+          <p class="tech">Java · Spring Boot · Microservices · Commercetools · REST APIs · MySQL · CI/CD</p>
+        </article>
+
+        <article class="card w2 k-req">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>commerce</li><li>auth</li><li>payments</li></ul></div>
+          <h3>Wild Fork</h3>
+          <p class="card-meta"><span>NULogic</span><span>Senior Software Engineer</span><span>Aug 2022 – Jan 2023</span><span>team of 10</span></p>
+          <p class="desc">Direct-to-consumer premium meat and seafood (MeatMe), farm to fork, with Commercetools powering catalog, shopping and checkout on web and mobile.</p>
+          <ul class="pts">
+            <li>REST APIs on <strong>Commercetools Product Projections</strong>; product-type schemas for cut, weight, origin and freshness, with real-time inventory sync.</li>
+            <li>Secure login with <strong>JWT access and refresh tokens</strong>, cross-device sessions and <strong>multi-factor authentication</strong>.</li>
+            <li>Dynamic checkout with real-time shipping rates and delivery-date estimates; payments with secure tokenization and <strong>PCI-compliant</strong> data handling.</li>
+          </ul>
+          <p class="tech">Java · J2EE · Spring · Hibernate · Commercetools · REST APIs · JWT · MySQL</p>
+        </article>
+
+        <article class="card k-evt">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>architecture</li><li>event-driven</li></ul></div>
+          <h3>Collectivus</h3>
+          <p class="card-meta"><span>NULogic</span><span>Solution Architect</span><span>Jun 2026 – Aug 2026</span><span>team of 10</span></p>
+          <p class="desc">Platform engineering program delivered through NULogic.</p>
+          <ul class="pts">
+            <li>Owned <strong>architecture and design decisions</strong> as Solution Architect.</li>
+            <li>Spring Boot microservices, data models and <strong>event-driven workflows</strong>.</li>
+          </ul>
+          <p class="tech">Java · Spring Boot · Microservices · REST APIs · Event-Driven Architecture · Cloud · CI/CD</p>
+        </article>
+
+        <article class="card k-req">
+          <div class="card-top"><ul class="chips" aria-label="Domains"><li>checkout</li><li>accounts</li></ul></div>
+          <h3>Macy’s</h3>
+          <p class="card-meta"><span>Crown Solutions India</span><span>Software Engineer</span><span>Oct 2020 – Jul 2021</span><span>team of 2</span></p>
+          <p class="desc">Checkout, accounts and orders for macys.com.</p>
+          <ul class="pts">
+            <li><strong>Guest checkout</strong> with session-based cart persistence and address validation.</li>
+            <li>Secure password reset with single-use expiring tokens; <strong>USPS address validation</strong> and split shipments.</li>
+          </ul>
+          <p class="tech">Java · J2EE · Spring · JDBC · Web Services · REST APIs · MySQL</p>
+        </article>
+      </div>
+
+      <div class="earlier reveal">
+        <h3 class="earlier-h">Earlier</h3>
+        <div class="earlier-row">
+          <div>
+            <h3>E-Com Operator Management</h3>
+            <p class="card-meta"><span>Hifi Technology</span><span>Java Developer</span><span>Nov 2018 – Sep 2020</span></p>
+          </div>
+          <p>Merchant admin platform for customer plans, insurance and medical-coverage membership and health claims. Built the REST service layer bottom-up and Hibernate persistence (Service and DAO patterns) on Spring MVC and Oracle; set up the cloud infrastructure from scratch.</p>
+        </div>
+        <div class="earlier-row">
+          <div>
+            <h3>HUE (High Usability Environment) and CJK / CSR</h3>
+            <p class="card-meta"><span>IVTL Infoview Technologies</span><span>Full Stack / Junior Developer</span><span>Jul 2016 – Nov 2018</span></p>
+          </div>
+          <p>Delivered the HUE ERP approval-flow module end to end and led a team of 4 on its maintenance; built 2 CJK / CSR modules independently and 3 with the team while converting a Delphi desktop application into a web application.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section inner" id="stack" aria-labelledby="stack-h">
+      <div class="sec-head reveal">
+        <p class="kicker">Stack</p>
+        <h2 id="stack-h">What I work with</h2>
+      </div>
+      <dl class="stack reveal">
+        <div class="w2 k-req"><dt>Backend Engineering</dt><dd><ul class="chips"><li>Java 8+</li><li>Spring Boot</li><li>Spring MVC</li><li>Hibernate</li><li>J2EE</li><li>Microservices</li><li>REST APIs</li><li>Multithreading (Executor framework)</li><li>Batch Processing</li><li>Performance Optimization</li></ul></dd></div>
+        <div class="w2 k-evt"><dt>Distributed Systems</dt><dd><ul class="chips"><li>Kafka</li><li>RabbitMQ</li><li>Event-Driven Architecture</li><li>Circuit Breakers</li><li>Idempotency</li><li>Distributed Caching</li><li>Multi-Data-Center Session Clustering</li><li>API Gateway Integration</li></ul></dd></div>
+        <div class="k-req"><dt>Architecture &amp; Leadership</dt><dd><ul class="chips"><li>Solution Architecture</li><li>Low-Level Design</li><li>Technical Strategy</li><li>Enterprise Client Engagement</li><li>Mentoring</li><li>Design &amp; Code Reviews</li><li>Agile Delivery</li></ul></dd></div>
+        <div class="k-data"><dt>Data &amp; Caching</dt><dd><ul class="chips"><li>MySQL</li><li>Oracle</li><li>Cassandra</li><li>Azure Cosmos DB</li><li>Redis</li><li>Elasticsearch</li></ul></dd></div>
+        <div class="w2 k-req"><dt>E-Commerce &amp; Retail</dt><dd><ul class="chips"><li>Commercetools: Product, Cart and Order APIs</li><li>Product Projections</li><li>Discounts</li><li>Custom Types</li><li>API Extensions</li><li>Subscriptions</li><li>Catalog &amp; PIM</li><li>Pricing &amp; Promotions</li><li>Checkout</li><li>Payments: Stripe, PayPal, Adyen</li><li>Order Management</li><li>Inventory</li><li>Customer Segmentation</li></ul></dd></div>
+        <div class="w2 k-evt"><dt>Cloud &amp; DevOps</dt><dd><ul class="chips"><li>AWS: S3, Lambda, SQS, SNS, CloudWatch</li><li>GCP: Pub/Sub, Cloud Storage, Google Retail Search</li><li>Azure: Batch, Cosmos DB</li><li>CI/CD</li><li>Argo CD</li><li>Infrastructure-as-Code</li></ul></dd></div>
+        <div class="k-req"><dt>Search &amp; Discovery</dt><dd><ul class="chips"><li>Google Retail Search</li><li>Elasticsearch</li><li>Faceted Navigation</li><li>Autocomplete</li><li>Relevance &amp; Ranking Tuning</li><li>Product Feeds</li><li>SEO</li></ul></dd></div>
+        <div class="k-data"><dt>Security</dt><dd><ul class="chips"><li>JWT access &amp; refresh tokens</li><li>Multi-Factor Authentication</li><li>Secure Token Propagation</li><li>Payment Tokenization</li><li>PCI-DSS</li></ul></dd></div>
+        <div class="k-evt"><dt>Observability</dt><dd><ul class="chips"><li>Prometheus</li><li>Grafana</li><li>ELK</li><li>Sleuth</li><li>Cloud Trace</li><li>Monitoring &amp; Alerting</li></ul></dd></div>
+        <div class="k-req"><dt>Rules, Content &amp; Marketing</dt><dd><ul class="chips"><li>Drools</li><li>Contentful</li><li>Epsilon</li></ul></dd></div>
+        <div class="k-evt"><dt>AI-Assisted Engineering</dt><dd><ul class="chips"><li>Claude Code</li><li>Claude AI</li><li>Agentic Workflows</li><li>Multi-Agent Orchestration</li><li>Prompt Engineering</li><li>AI-Assisted Code Review, Testing &amp; Documentation</li></ul></dd></div>
+        <div class="k-data"><dt>Testing &amp; Tools</dt><dd><ul class="chips"><li>JUnit</li><li>Integration &amp; Regression Testing</li><li>Postman</li><li>GitHub</li><li>Maven</li><li>IntelliJ IDEA</li><li>Eclipse</li><li>Tomcat</li><li>React (API integration)</li></ul></dd></div>
+      </dl>
+    </section>
+
+    <section class="section inner" id="credentials" aria-labelledby="creds-h">
+      <div class="sec-head reveal">
+        <p class="kicker">Credentials</p>
+        <h2 id="creds-h">Certifications</h2>
+      </div>
+      <div class="creds reveal">
+        <div class="glass">
+          <h3 class="cred-h">Claude Academy · Anthropic</h3>
+          <p class="cred-sub">15 course badges · issued Oct 2026 · each one verifiable</p>
+          <ul class="badges">
+            <li class="feat"><span>Claude Code in Action</span><a class="verify" href="https://academy.claude.com/verify/af9fbe37099f28ddb119d38103795eb5" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li class="feat"><span>Building with the Claude API</span><a class="verify" href="https://academy.claude.com/verify/9e9b36165053b2fd601b65e5742eaa7f" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li class="feat"><span>Model Context Protocol: Advanced topics</span><a class="verify" href="https://academy.claude.com/verify/09d794bb3226e64a36c71c9d59aeba1b" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Introduction to Model Context Protocol</span><a class="verify" href="https://academy.claude.com/verify/7886cb5ec43f578c0962875bab400b9e" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Claude Code 101</span><a class="verify" href="https://academy.claude.com/verify/8a158c55008ff0671a2f12342e4d03e7" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Claude Platform 101</span><a class="verify" href="https://academy.claude.com/verify/9e55b0c71a91a1f1ac8d24cfa15ddad7" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Claude with Google Cloud’s Vertex AI</span><a class="verify" href="https://academy.claude.com/verify/a2156a08dd63946d7ff19c9785a8eb55" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Deploying Claude Enterprise with confidence</span><a class="verify" href="https://academy.claude.com/verify/baf6e09588237a7115b30a312c4b0b85" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Building effective human-agent teams</span><a class="verify" href="https://academy.claude.com/verify/d39be68c74e615a6b43fe0737ed48b17" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>AI Fluency for builders</span><a class="verify" href="https://academy.claude.com/verify/a0597b1c09ed7b7a3c4ac4bc73b848a0" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>AI Fluency: Framework and foundations</span><a class="verify" href="https://academy.claude.com/verify/788b1a9c8d5e0effc585537573fd4017" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>AI capabilities and limitations</span><a class="verify" href="https://academy.claude.com/verify/4fb1b0b23060f7be24306ff2c1160928" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Introduction to Claude Cowork</span><a class="verify" href="https://academy.claude.com/verify/bfe2ba4e1c5b3ff649fcf4c4f4359626" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Introduction to Claude Tag</span><a class="verify" href="https://academy.claude.com/verify/f30164fb4f6d4c93d8daa7e3245c862f" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+            <li><span>Claude 101</span><a class="verify" href="https://academy.claude.com/verify/103d49608a00229d122fe3fc68c4063e" target="_blank" rel="noopener noreferrer">Verify ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section inner contact" id="contact" aria-labelledby="contact-h">
+      <div class="contact-card reveal">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2 id="contact-h">Let’s build the next platform</h2>
+          <p class="contact-lead">Email is the fastest way to reach me.</p>
+          <span class="email" id="email">fayaz30395@gmail.com</span>
+          <div class="copy-row">
+            <button class="btn btn-primary" id="copy" type="button">Copy email</button>
+            <a class="btn" href="https://www.linkedin.com/in/fayaz-deen-b1ba932b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn" href="https://github.com/Fayaz-Deen" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <dl class="facts">
+          <div><dt>Roles</dt><dd>Lead · Staff · Senior Backend Engineer</dd></div>
+          <div><dt>Relocation</dt><dd>Open to any location · remote, hybrid or on-site</dd></div>
+          <div><dt>Based currently in</dt><dd>Santiago, Chile</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="inner">
+    <span>© 2026 Mohamed Fayaz Deen H</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Copy email: Clipboard API first, select-the-text fallback (clipboard is often blocked in iframes).
+  const emailEl = $("#email"), copyStatus = $("#copy-status");
+  $("#copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(emailEl.textContent.trim());
+      copyStatus.textContent = "Copied";
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(emailEl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      copyStatus.textContent = "Selected. Press Ctrl+C or Cmd+C";
+    }
+  });
+
+  const reduce = false; // always animate, by owner request
+
+  // Scroll progress bar (transform only, one write per frame).
+  const bar = $(".progress span");
+  let ticking = false;
+  const paintProgress = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(paintProgress); } }, { passive: true });
+  addEventListener("resize", paintProgress);
+  paintProgress();
+
+  // Active section in the sticky nav.
+  const links = new Map($$(".nav nav a").map(a => [a.hash.slice(1), a]));
+  const navEl = $(".nav nav");
+  const setCurrent = id => links.forEach((a, key) => {
+    a.setAttribute("aria-current", key === id ? "true" : "false");
+    // phones: keep the active link inside the horizontally scrolling nav
+    if (key === id && navEl.scrollWidth > navEl.clientWidth) navEl.scrollTo({ left: a.offsetLeft - navEl.offsetLeft - 12, behavior: reduce ? "auto" : "smooth" });
+  });
+  const sectionSpy = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) setCurrent(e.target.id); });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  links.forEach((_, id) => { const s = document.getElementById(id); if (s) sectionSpy.observe(s); });
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) setCurrent(""); }, { rootMargin: "0px 0px -60% 0px" }).observe($(".hero"));
+
+  // Career trace: hovering, focusing or clicking a span shows its events in the side panel (wide screens).
+  const panel = $("#trace-panel");
+  const spans = $$(".trace .span");
+  const select = span => {
+    if (span.classList.contains("is-active") && panel.childElementCount) return;
+    spans.forEach(s => {
+      const on = s === span;
+      s.classList.toggle("is-active", on);
+      s.querySelector(".span-btn").setAttribute("aria-pressed", String(on));
+    });
+    panel.className = `trace-panel ${[...span.classList].find(c => c.startsWith("s-"))}`;
+    const detail = span.querySelector(".span-detail").cloneNode(true);
+    detail.classList.add("in");
+    panel.replaceChildren(detail);
+  };
+  spans.forEach(span => {
+    const btn = span.querySelector(".span-btn");
+    btn.addEventListener("click", () => select(span));
+    btn.addEventListener("focus", () => select(span));
+    btn.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") select(span); });
+  });
+  select(spans.find(s => s.classList.contains("is-active")) || spans[0]);
+
+  // Card spotlight follows the pointer.
+  $$(".cards").forEach(grid => grid.addEventListener("pointermove", e => {
+    const card = e.target.closest(".card");
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    card.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }));
+
+  if (reduce) return;
+
+  // Section reveals: everything is visible at rest; blocks below the fold only rise into place.
+  const reveals = $$(".reveal").filter(el => el.getBoundingClientRect().top > innerHeight);
+  const revealer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("rv"); revealer.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  reveals.forEach(el => { el.classList.add("rv"); revealer.observe(el); });
+
+  // The trace plays once: a playhead sweeps 2016 → now and each span glints as it passes.
+  const trace = $(".trace");
+  const player = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { trace.classList.add("play"); player.disconnect(); }
+  }, { threshold: 0.35 });
+  player.observe(trace);
+
+  // Hero counters count up once; the HTML already holds the final values.
+  $$("[data-count]").forEach(el => {
+    const end = Number(el.dataset.count), t0 = performance.now(), dur = 1100;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / dur);
+      el.textContent = String(Math.round(end * (1 - (1 - k) ** 3)));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+})();
+
+// Logo strip: drifts on its own, and swipe, trackpad or mouse drag scrolls it by hand.
+(() => {
+  const band = document.querySelector(".band");
+  const track = band && band.querySelector(".band-track");
+  if (!track) return;
+  // Always loops, by request, including under reduced motion.
+  const SPEED = 0.04; // px per ms
+  let half = 0, pos = 0, last = 0, holdUntil = 0, drag = null, visible = true;
+  const measure = () => { half = track.scrollWidth / 2; };
+  const wrap = () => {
+    if (!half) return;
+    if (band.scrollLeft >= half) band.scrollLeft -= half;
+    else if (band.scrollLeft <= 0) band.scrollLeft += half;
+    pos = band.scrollLeft;
+  };
+  const hold = ms => { holdUntil = performance.now() + ms; };
+  new ResizeObserver(() => { measure(); wrap(); }).observe(track);
+  measure();
+  band.scrollLeft = pos = 1;
+
+  band.addEventListener("scroll", () => { if (!drag) { wrap(); } }, { passive: true });
+  band.addEventListener("wheel", () => hold(2500), { passive: true });
+  band.addEventListener("touchstart", () => hold(3000), { passive: true });
+  band.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse") return;
+    drag = { x: e.clientX, left: band.scrollLeft };
+    band.classList.add("dragging");
+    band.setPointerCapture(e.pointerId);
+  });
+  band.addEventListener("pointermove", e => {
+    if (!drag) return;
+    band.scrollLeft = drag.left - (e.clientX - drag.x);
+    wrap();
+    drag = { x: e.clientX, left: band.scrollLeft };
+  });
+  const end = () => { if (drag) { drag = null; band.classList.remove("dragging"); } };
+  band.addEventListener("pointerup", end);
+  band.addEventListener("pointercancel", end);
+
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(band);
+  const tick = now => {
+    const dt = Math.min(50, now - (last || now));
+    last = now;
+    if (visible && !drag && now > holdUntil && !document.hidden) {
+      pos += SPEED * dt;
+      band.scrollLeft = pos;
+      if (band.scrollLeft >= half) { band.scrollLeft -= half; pos = band.scrollLeft; }
+    } else {
+      pos = band.scrollLeft;
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
+<script src="hero.js" defer></script>
+
+</body>
+</html>
