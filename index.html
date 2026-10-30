@@ -132,6 +132,10 @@ a { color: inherit; }
 @supports (-webkit-background-clip: text) {
   .name { background: linear-gradient(180deg, var(--ink) 35%, var(--ink-soft)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 }
+/* first name in accent amber; the rest keeps the ink gradient */
+.name .hl { background: none; -webkit-text-fill-color: var(--accent-amber); color: var(--accent-amber); }
+.name { font-size: clamp(34px, 8.2vw, 132px); }
+@media (max-width: 640px) { .name { font-size: min(17vw, 96px); line-height: .88; } .name span { display: block; } .name span:nth-child(3) { display: inline; } }
 .hero-grid { display: grid; gap: 40px; margin-top: 40px; }
 .role { margin: 0; font-family: var(--f-display); font-stretch: 85%; font-weight: 500; font-size: clamp(18px, 2vw, 22px); line-height: 1.35; color: var(--ink-soft); }
 .thesis { margin: 14px 0 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; max-width: 34em; }
@@ -469,7 +473,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
     <section class="hero" id="top" aria-labelledby="hero-name">
       <div class="inner">
         <p class="eyebrow"><span>Senior Technical Lead at NULogic</span><span>Santiago, Chile</span></p>
-        <h1 class="name" id="hero-name">Fayaz Deen</h1>
+        <h1 class="name" id="hero-name"><span>Mohamed</span> <span class="hl">Fayaz</span> <span>Deen</span></h1>
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="role">Java · Spring Boot · Microservices · Distributed Systems</p>
