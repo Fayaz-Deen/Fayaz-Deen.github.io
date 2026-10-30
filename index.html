@@ -16,13 +16,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://fayaz-deen.github.io/">
 <meta name="theme-color" content="#060606">
-<link rel="icon" href="avatar.jpg" type="image/jpeg">
-<link rel="apple-touch-icon" href="avatar.jpg">
+<link rel="icon" href="fd.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="fd-180.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
 
 :root {
   color-scheme: dark;
@@ -89,7 +90,10 @@ a { color: inherit; }
 }
 .nav-inner { display: flex; align-items: center; gap: 16px; height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; flex: none; text-decoration: none; }
-.brand-mark { display: block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-amber-soft); }
+/* FD brand mark: matte black, white geometric letters, one indigo accent line; no shadow or gradient */
+.brand-mark, .monogram { position: relative; display: grid; place-items: center; flex: none; background: #111111; color: #FFFFFF; border: 1px solid #26262b; font-family: "Outfit", var(--f-body); font-weight: 700; letter-spacing: -.02em; line-height: 1; }
+.brand-mark::after, .monogram::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: 18%; height: 2px; border-radius: 2px; background: #6366F1; }
+.brand-mark { width: 32px; height: 32px; border-radius: 9px; font-size: 13.5px; }
 .brand-name { font-family: var(--f-display); font-weight: 600; font-stretch: 85%; font-size: 17px; }
 .nav nav { display: flex; gap: 2px; margin-left: auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }
 .nav nav::-webkit-scrollbar { display: none; }
@@ -144,6 +148,14 @@ a { color: inherit; }
 .btn:active { transform: translateY(0); }
 .btn-primary { background: var(--ink); color: var(--ground); border-color: var(--ink); }
 .btn-primary:hover { background: var(--accent-amber); border-color: var(--accent-amber); }
+.btn-resume { border-color: #6366F1; color: var(--ink); }
+.btn-resume:hover { background: rgba(99, 102, 241, .14); }
+.downloads { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.dl { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--ground); color: var(--ink); text-decoration: none; transition: border-color .2s ease; }
+.dl b { font-weight: 600; }
+.dl b::after { content: " ↓"; color: #6366F1; }
+.dl span { font-family: var(--f-mono); font-size: 11px; color: var(--ink-mute); }
+.dl:hover, .dl:focus-visible { border-color: #6366F1; }
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 32px 0 0; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .stats div { display: flex; flex-direction: column-reverse; gap: 6px; padding: 16px 18px; background: var(--ground); }
 .stats dt { font-family: var(--f-mono); font-size: 11.5px; line-height: 1.4; color: var(--ink-mute); }
@@ -204,7 +216,8 @@ h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700
 .profile { display: grid; gap: 24px; }
 .profile-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise); }
 .who { display: flex; align-items: center; gap: 16px; margin: 0 0 22px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
-.monogram { display: block; flex: none; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-amber-soft); box-shadow: 0 0 0 4px var(--ground), 0 0 0 5px var(--line-strong); }
+.monogram { width: 64px; height: 64px; border-radius: 16px; font-size: 26px; }
+.monogram::after { height: 3px; bottom: 17%; }
 .who-name { margin: 0; font-family: var(--f-display); font-stretch: 85%; font-weight: 600; font-size: 20px; line-height: 1.2; }
 .who-role { margin: 4px 0 0; font-family: var(--f-mono); font-size: 12px; color: var(--ink-mute); line-height: 1.5; }
 .profile-card p.copy { margin: 0 0 16px; color: var(--ink-soft); }
@@ -438,7 +451,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
 <div class="page">
   <header class="nav">
     <div class="nav-inner inner">
-      <a class="brand" href="#top" aria-label="Fayaz Deen, back to top"><img class="brand-mark" src="avatar.jpg" alt="" width="30" height="30"><span class="brand-name">Fayaz Deen</span></a>
+      <a class="brand" href="#top" aria-label="Fayaz Deen, back to top"><span class="brand-mark" aria-hidden="true">FD</span><span class="brand-name">Fayaz Deen</span></a>
       <nav aria-label="Sections">
         <a href="#profile">Profile</a>
         <a href="#trace">Career</a>
@@ -447,7 +460,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
         <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
       </nav>
-      <span class="nav-status"><span class="live" aria-hidden="true"></span>Open to new roles</span>
+      <span class="nav-status"><span class="live" aria-hidden="true"></span>Open to roles, contracts &amp; freelance</span>
     </div>
     <div class="progress" aria-hidden="true"><span></span></div>
   </header>
@@ -461,9 +474,10 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
           <div class="hero-copy">
             <p class="role">Java · Spring Boot · Microservices · Distributed Systems</p>
             <p class="thesis">I build and lead the Java backends behind enterprise commerce, search, payments and data platforms, for global brands including Sephora, Macy’s, Express, PayPal, Wild Fork and UPPAbaby.</p>
-            <p class="status"><span class="live" aria-hidden="true"></span><span>Open to Lead, Staff and Senior Backend Engineer roles<br>Open to relocating anywhere · remote, hybrid or on-site</span></p>
+            <p class="status"><span class="live" aria-hidden="true"></span><span>Open to Lead, Staff and Senior Backend Engineer roles, plus contract and freelance work<br>Open to relocating anywhere · remote, hybrid or on-site</span></p>
             <div class="ctas">
               <a class="btn btn-primary" href="#contact">Get in touch</a>
+              <a class="btn btn-resume" href="https://fayaz-deen.github.io/Fayaz_Deen_Resume.pdf" target="_blank" rel="noopener" download>Résumé PDF ↓</a>
               <a class="btn" href="https://www.linkedin.com/in/fayaz-deen-b1ba932b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
               <a class="btn" href="https://github.com/Fayaz-Deen" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </div>
@@ -497,7 +511,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
       <div class="profile reveal">
         <div class="profile-card">
           <div class="who">
-            <img class="monogram" src="avatar.jpg" alt="Fayaz Deen" width="64" height="64">
+            <span class="monogram" role="img" aria-label="FD, Fayaz Deen">FD</span>
             <div>
               <h3 class="who-name">Mohamed Fayaz Deen H</h3>
               <p class="who-role">Senior Technical Lead · NULogic</p>
@@ -841,9 +855,14 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
             <a class="btn" href="https://github.com/Fayaz-Deen" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
           </div>
+          <div class="downloads">
+            <a class="dl" href="https://fayaz-deen.github.io/Fayaz_Deen_Resume.pdf" target="_blank" rel="noopener" download><b>Résumé</b><span>3 pages · PDF</span></a>
+            <a class="dl" href="https://fayaz-deen.github.io/Fayaz_Deen_Resume_Full.pdf" target="_blank" rel="noopener" download><b>Full résumé</b><span>6 pages · PDF · every project in detail</span></a>
+          </div>
         </div>
         <dl class="facts">
           <div><dt>Roles</dt><dd>Lead · Staff · Senior Backend Engineer</dd></div>
+          <div><dt>Engagement</dt><dd>Full-time · Contract · Freelance</dd></div>
           <div><dt>Relocation</dt><dd>Open to any location · remote, hybrid or on-site</dd></div>
           <div><dt>Based currently in</dt><dd>Santiago, Chile</dd></div>
           <div><dt>Phone</dt><dd class="phones"><a href="tel:+56965590554">+56 9 6559 0554</a><span>Chile</span><a href="tel:+919087360066">+91 90873 60066</a><span>India</span></dd></div>
