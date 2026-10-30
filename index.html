@@ -852,9 +852,9 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
           <p class="kicker">Contact</p>
           <h2 id="contact-h">Let’s build the next platform</h2>
           <p class="contact-lead">Email is the fastest way to reach me.</p>
-          <span class="email" id="email">fayaz30395@gmail.com</span>
+          <span class="email" id="email">Hidden from bots</span>
           <div class="copy-row">
-            <button class="btn btn-primary" id="copy" type="button">Copy email</button>
+            <button class="btn btn-primary" id="copy" type="button">Show &amp; copy email</button>
             <a class="btn" href="https://www.linkedin.com/in/fayaz-deen-b1ba932b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <a class="btn" href="https://github.com/Fayaz-Deen" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
@@ -869,7 +869,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
           <div><dt>Engagement</dt><dd>Full-time · Contract · Freelance</dd></div>
           <div><dt>Relocation</dt><dd>Open to any location · remote, hybrid or on-site</dd></div>
           <div><dt>Based currently in</dt><dd>Santiago, Chile</dd></div>
-          <div><dt>Phone</dt><dd class="phones"><a href="tel:+56965590554">+56 9 6559 0554</a><span>Chile</span><a href="tel:+919087360066">+91 90873 60066</a><span>India</span></dd></div>
+          <div><dt>Phone</dt><dd class="phones" id="phones">Shown with the email</dd></div>
         </dl>
       </div>
     </section>
@@ -889,7 +889,32 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
   // Copy email: Clipboard API first, select-the-text fallback (clipboard is often blocked in iframes).
   const emailEl = $("#email"), copyStatus = $("#copy-status");
   let copyTimer;
+
+  // Contact details are not in the page source: built on first click so plain-HTML scrapers miss them.
+  const rv = s => [...s].reverse().join("");
+  const CONTACT = {
+    email: "moc.liamg@59303zayaf",
+    phones: [["4550 9556 9 65+", "Chile"], ["66006 37809 19+", "India"]]
+  };
+  let revealed = false;
+  const reveal = () => {
+    if (revealed) return;
+    revealed = true;
+    emailEl.textContent = rv(CONTACT.email);
+    const box = $("#phones");
+    box.textContent = "";
+    CONTACT.phones.forEach(([n, label]) => {
+      const num = rv(n), a = document.createElement("a"), sp = document.createElement("span");
+      a.href = "tel:" + num.replace(/ /g, "");
+      a.textContent = num;
+      sp.textContent = label;
+      box.append(a, sp);
+    });
+    $("#copy").textContent = "Copy email";
+  };
+
   $("#copy").addEventListener("click", async () => {
+    reveal();
     // clear first so a repeat click is announced again, then fade the message out
     copyStatus.textContent = "";
     clearTimeout(copyTimer);
