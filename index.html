@@ -36,7 +36,7 @@
   --ink: #ece7df;
   --ink-soft: #b3ada4;
   --ink-mute: #8a847a;
-  --ink-dim: #5e5952;
+  --ink-dim: #68625a;
   /* semantic accents: amber = request / API / commerce, sage = event / pipeline, rose = data / security */
   --accent-amber: #d2a566;
   --accent-amber-soft: #7f6644;
@@ -213,15 +213,18 @@ h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700
 .wins { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .win {
   position: relative; overflow: hidden; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
-  background: var(--ground-raise); transition: transform .35s var(--ease);
+  background: var(--ground-raise);
 }
 .win::after { content: ""; position: absolute; left: 22px; right: 22px; top: 0; height: 1px; background: linear-gradient(90deg, var(--k), transparent); }
-.win:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+.win:hover { border-color: var(--line-strong); }
 .win h3 { margin: 0 0 8px; font-family: var(--f-display); font-stretch: 80%; font-weight: 600; font-size: 21px; line-height: 1.2; }
 .win .tag { display: block; margin: 0 0 12px; font-family: var(--f-mono); font-size: 11px; color: var(--k); }
 .win p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
 @media (min-width: 640px) { .wins { grid-template-columns: 1fr 1fr; } .win.wide { grid-column: 1 / -1; } }
-@media (min-width: 1000px) { .profile { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+@media (min-width: 1000px) {
+  .profile { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; }
+  .profile-card { position: sticky; top: 84px; }
+}
 
 /* career trace */
 .trace { --label-w: 230px; --pad: 14px; display: grid; gap: 24px; }
@@ -309,14 +312,13 @@ h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700
   position: relative; isolation: isolate; overflow: hidden;
   display: flex; flex-direction: column; gap: 14px; padding: 24px;
   border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise);
-  transition: transform .4s var(--ease);
 }
 .card::before {
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .4s var(--ease);
   background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--k-glow), transparent 60%);
 }
 .card::after { content: ""; position: absolute; left: 24px; right: 24px; top: 0; height: 1px; background: linear-gradient(90deg, var(--k), transparent 70%); opacity: .7; }
-.card:hover, .card:focus-within { transform: translateY(-3px); border-color: var(--k-soft); }
+.card:hover, .card:focus-within { border-color: var(--k-soft); }
 .card:hover::before, .card:focus-within::before { opacity: 1; }
 .card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
 .card-meta { display: flex; flex-wrap: wrap; gap: 3px 12px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
@@ -367,9 +369,8 @@ h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700
 .stack { display: grid; gap: 12px; margin: 0; grid-auto-flow: dense; }
 .stack > div {
   padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-raise);
-  transition: transform .35s var(--ease);
 }
-.stack > div:hover { transform: translateY(-2px); border-color: var(--k-soft); }
+.stack > div:hover { border-color: var(--k-soft); }
 .stack dt { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; color: var(--k); }
 .stack dt::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--k); }
 .stack dd { margin: 0; }
@@ -418,6 +419,10 @@ h2 { margin: 0; max-width: 20ch; font-family: var(--f-display); font-weight: 700
 .facts div:first-child { border-top: 1px solid var(--line); }
 .facts dt { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
 .facts dd { margin: 2px 0 0; color: var(--ink); }
+.facts .phones { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: baseline; }
+.facts .phones a { color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; user-select: all; }
+.facts .phones a:hover { color: var(--accent-amber); }
+.facts .phones span { font-family: var(--f-mono); font-size: 11px; color: var(--ink-mute); }
 @media (min-width: 960px) { .contact-card { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; } }
 footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 22px 0 32px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-mute); }
 
@@ -494,7 +499,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
           <div class="who">
             <img class="monogram" src="avatar.jpg" alt="Fayaz Deen" width="64" height="64">
             <div>
-              <p class="who-name">Mohamed Fayaz Deen H</p>
+              <h3 class="who-name">Mohamed Fayaz Deen H</h3>
               <p class="who-role">Senior Technical Lead · NULogic</p>
             </div>
           </div>
@@ -841,6 +846,7 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
           <div><dt>Roles</dt><dd>Lead · Staff · Senior Backend Engineer</dd></div>
           <div><dt>Relocation</dt><dd>Open to any location · remote, hybrid or on-site</dd></div>
           <div><dt>Based currently in</dt><dd>Santiago, Chile</dd></div>
+          <div><dt>Phone</dt><dd class="phones"><a href="tel:+56965590554">+56 9 6559 0554</a><span>Chile</span><a href="tel:+919087360066">+91 90873 60066</a><span>India</span></dd></div>
         </dl>
       </div>
     </section>
@@ -859,7 +865,12 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
 
   // Copy email: Clipboard API first, select-the-text fallback (clipboard is often blocked in iframes).
   const emailEl = $("#email"), copyStatus = $("#copy-status");
+  let copyTimer;
   $("#copy").addEventListener("click", async () => {
+    // clear first so a repeat click is announced again, then fade the message out
+    copyStatus.textContent = "";
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => { copyStatus.textContent = ""; }, 4000);
     try {
       await navigator.clipboard.writeText(emailEl.textContent.trim());
       copyStatus.textContent = "Copied";
@@ -900,6 +911,10 @@ footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8p
   }, { rootMargin: "-40% 0px -55% 0px" });
   links.forEach((_, id) => { const s = document.getElementById(id); if (s) sectionSpy.observe(s); });
   new IntersectionObserver(([e]) => { if (e.isIntersecting) setCurrent(""); }, { rootMargin: "0px 0px -60% 0px" }).observe($(".hero"));
+  // deep links (#profile etc.) land without a scroll event, so mark the target directly
+  const fromHash = () => { const id = location.hash.slice(1); if (links.has(id)) setCurrent(id); };
+  addEventListener("hashchange", fromHash);
+  addEventListener("load", fromHash);
 
   // Career trace: hovering, focusing or clicking a span shows its events in the side panel (wide screens).
   const panel = $("#trace-panel");
